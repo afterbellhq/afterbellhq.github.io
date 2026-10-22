@@ -1,0 +1,132 @@
+/* Afterbell: the night-school palette from lib/logo.js. */
+:root {
+  color-scheme: dark;
+  --night: #1a1630;
+  --night-lt: #2b2448;
+  --ink: #05060e;
+  --chalk: #e9ecdf;
+  --chalk-dim: #86a597;
+  --amber: #ffb21e;
+  --amber-lt: #ffe08a;
+  /* The wide lockup is 400 pixels: the column holds it at exactly 2x. */
+  --column: 800px;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--night); }
+
+body {
+  margin: 0;
+  background: linear-gradient(var(--night-lt), var(--night) 22rem) no-repeat, var(--night);
+  color: var(--chalk);
+  font: 1.0625rem/1.65 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.top, main, footer {
+  max-width: calc(var(--column) + 2rem);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Keeps the first heading's margin inside the page, so the night gradient starts at the top. */
+main { display: flow-root; }
+
+img, svg { image-rendering: pixelated; }
+
+.top a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  text-decoration: none;
+}
+
+.top img { display: block; width: 40px; height: 40px; }
+
+h1, h2 { margin: 0; line-height: 1; }
+
+.lockup {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  margin: 2.5rem 0 2rem;
+}
+
+@media (min-width: 40.0625rem) {
+  .lockup { max-width: var(--column); }
+}
+
+.pixel svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  shape-rendering: crispEdges;
+}
+
+h1.pixel { margin: 3rem 0 0.75rem; }
+
+h2.pixel { margin: 3rem 0 1.25rem; }
+
+p { margin: 0 0 1rem; max-width: 68ch; }
+
+.updated { color: var(--chalk-dim); margin-bottom: 2.25rem; }
+
+.legal h2 {
+  margin: 2.25rem 0 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 650;
+  line-height: 1.3;
+}
+
+a {
+  color: var(--amber);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+a:hover { color: var(--amber-lt); }
+
+a:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.profiles { list-style: none; margin: 0; padding: 0; }
+
+.profiles li {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 1rem;
+  padding: 0.35rem 0;
+}
+
+.profiles span { color: var(--chalk-dim); }
+
+footer {
+  margin-top: 4rem;
+  padding-bottom: 3rem;
+}
+
+footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--night-lt);
+}
+
+footer nav [aria-current] { color: var(--chalk); text-decoration: none; }
+
+footer p { margin: 0.75rem 0 0; color: var(--chalk-dim); font-size: 0.9375rem; }
+
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
